@@ -1,0 +1,169 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0.1\n"
+"Report-Msgid-Bugs-To: webmaster@localhost\n"
+"POT-Creation-Date: 2021-07-06 17:01:00\n"
+"PO-Revision-Date: 2021-07-06 17:01:00\n"
+"Last-Translator: Server <root@localhost>\n"
+"Language-Team: English <webmaster@localhost>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/index.html:22
+msgid "A compendium of music-adjacent thoughts"
+msgstr "Un compendio de pensamientos adyacentes a la música"
+
+#: templates/base.html:58
+msgid "About"
+msgstr "Sobre mí"
+
+#: templates/project_detail.html:15
+msgid "About the project:"
+msgstr "Sobre el proyecto:"
+
+#: templates/project_detail.html:20
+msgid "Back"
+msgstr "Atrás"
+
+#: blog/forms.py:11
+msgid "Body"
+msgstr "Cuerpo"
+
+#: templates/post_detail.html:16
+msgid "Categories:"
+msgstr "Categorías:"
+
+#: templates/post_detail.html:25
+msgid "comments"
+msgstr "comentarios"
+
+#: templates/base.html:64
+msgid "Contact"
+msgstr "Contacto"
+
+#: templates/contact.html:11
+msgid "Contact form"
+msgstr "Formulario de contacto"
+
+#: templates/about.html:101
+msgid ""
+"Currently studying at the National Open University (UNA), and working as a "
+"freelance audio engineer and transcriptionist; highly interested in digital "
+"humanities, philosophy, and music theory. "
+msgstr ""
+"Actualmente estudio en la Universidad Nacional Abierta (UNA) y trabajo como "
+"ingeniero de sonido y transcriptor autónomo; muy interesado en las "
+"humanidades digitales, la filosofía y la teoría musical."
+
+#: blog/forms.py:10
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: mysite/settings.py:128
+msgid "english"
+msgstr "inglés"
+
+#: templates/contact.html:21
+msgid "Get in touch"
+msgstr "Comunícate conmigo"
+
+#: templates/about.html:100
+msgid ""
+"Graduated with a BA in music with a composition mention from the Lisandro "
+"Alvarado Midwestern University (UCLA)."
+msgstr ""
+"Licenciado en música con mención en composición de la Universidad "
+"Centroccidental Lisandro Alvarado (UCLA)."
+
+#: templates/about.html:99
+msgid "I'm a composer and developer based in Venezuela. "
+msgstr "Soy un compositor y desarrollador con sede en Venezuela."
+
+#: templates/about.html:11
+msgid "In lieu of a biography"
+msgstr "En lugar de una biografía"
+
+#: templates/post_detail.html:54
+msgid "Index"
+msgstr "Índice"
+
+#: templates/post_detail.html:47
+msgid "Leave a comment"
+msgstr "Deja un comentario"
+
+#: templates/contact.html:21
+msgid "Leave a message"
+msgstr "Deja un mensaje"
+
+#: contact_form/views.py:21
+msgid "Message received"
+msgstr "Mensaje recibido"
+
+#: blog/forms.py:9
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/index.html:53
+msgid "NEXT"
+msgstr "SIG"
+
+#: templates/project_index.html:19
+msgid "Personal portfolio"
+msgstr "Portafolio personal"
+
+#: templates/base.html:8
+msgid "Personal website of Jorge Olmos"
+msgstr "Sitio web personal de Jorge Olmos"
+
+#: templates/project_detail.html:13
+msgid "Project title:"
+msgstr "Título del proyecto:"
+
+#: templates/base.html:61
+msgid "Projects"
+msgstr "Proyectos"
+
+#: templates/project_index.html:37
+msgid "Read more"
+msgstr "Leer más"
+
+#: templates/sidebar.html:13
+msgid "RSS Feed"
+msgstr "Feed RSS"
+
+#: mysite/settings.py:129
+msgid "spanish"
+msgstr "español"
+
+#: templates/post_detail.html:51
+msgid "Submit"
+msgstr "Enviar"
+
+#: templates/sidebar.html:16
+msgid "Subscribe"
+msgstr "Suscribir"
+
+#: templates/project_detail.html:18
+msgid "Technology used:"
+msgstr "Tecnología usada:"
+
+#: templates/about.html:96
+msgid "Who am I?"
+msgstr "¿Quién soy?"
+
+#: templates/about.html:102
+msgid ""
+"You can get in touch on Twitter, or using the contact form on this website."
+msgstr ""
+"Puede comunicarse conmigo en Twitter o a través del formulario de este sitio"
+" web."
+
+#: templates/sidebar.html:15
+msgid "You can subscribe to the blog using RSS."
+msgstr "Puedes suscribirte al blog usando RSS."
+
+#: templates/post_detail.html:44
+msgid "Your comment is awaiting approval"
+msgstr "Tu comentario está esperando aprobación"

@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% load crispy_forms_tags %} {% load i18n%}
+{% block title %}{% trans "Contact" %}{% endblock %}
+{% block content %}
+<body>
+    <style>
+
+    .card {
+        background-color: #F6F5F5;
+        box-shadow: 0 0px 0px #E3E7EB;
+    }
+</style>
+
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h2 class= "site-heading my-4 mt-3 text-white text-center font-weight-bold">{% trans "Contact form"  %}</h2>
+                    <p class="text-light text-center font-weight-light">{% trans "Get in touch" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<br>
+
+    <div class="container mt-4">
+            <div class="card mx-auto">
+                <h2 class="card-header">{% trans "Leave a message" %}</h2>
+                <div class="card-body">
+                {% if messages %}
+
+                <ul>
+            	{% for message in messages %}
+            	<div class="alert alert-success col-lg-12 col-sm-12 col-xs-12 text-center mx-auto" role="alert">
+            	    <li class="{{ message.tags }}">{{ message }}</li>
+            	</div>
+            	{% endfor %}
+                </ul>
+
+                {% endif %}
+
+                <div class="col-lg-12 col-md-16 mx-auto">
+            	{% crispy form %}
+                </div>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock content %}

@@ -1,0 +1,143 @@
+{% extends "base.html" %} {% load markdown_extras %} {% load i18n%}
+{% block title %}{% trans "About" %}{% endblock %}
+{% block content %}
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h2 class= "site-heading my-4 mt-3 text-white text-center font-weight-bold">{% trans "About" %}</h2>
+                    <p class="text-light text-center font-weight-light">{% trans "In lieu of a biography" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<style>
+html {
+  box-sizing: border-box;
+}
+
+        body {
+            background-color: #474e5d;
+        }
+i{
+    font-family: 'FontAwesome';
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+
+
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #474e5d;
+  color: white;
+}
+
+
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.divider-custom {
+  margin: 1.25rem 0 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divider-custom .divider-custom-line {
+  width: 100%;
+  max-width: 7rem;
+  height: 0.15rem;
+  background-color: #2c3e50;
+  border-radius: 1rem;
+  border-color: #2c3e50;
+}
+.divider-custom .divider-custom-line:first-child {
+  margin-right: 1rem;
+}
+.divider-custom .divider-custom-line:last-child {
+  margin-left: 1rem;
+}
+.divider-custom .divider-custom-icon {
+  color: #2c3e50;
+  font-size: 1rem;
+}
+.divider-custom.divider-light .divider-custom-line {
+  background-color: #fff;
+}
+.divider-custom.divider-light .divider-custom-icon {
+  color: #fff;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+</style>
+
+<div class="about-section">
+<div class="container">
+  <h3>{% trans "Who am I?" %}</h3>
+  <p></p>
+                  <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-info-circle"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+  <p></p>
+  <p>{% blocktrans %}I'm a composer and developer based in Venezuela. {% endblocktrans %} </p>
+  <p>{% blocktrans %}Graduated with a BA in music with a composition mention from the Lisandro Alvarado Midwestern University (UCLA).{% endblocktrans %}</p>
+  <p>{% blocktrans %}Currently studying at the National Open University (UNA), and working as a freelance audio engineer and transcriptionist; highly interested in digital humanities, philosophy, and music theory. {% endblocktrans %}</p>
+  <p>{% blocktrans %}You can get in touch on Twitter, or using the contact form on this website.{% endblocktrans %}</p>
+                    <div class="divider-custom divider-light">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><a class="btn btn-outline-light btn-social mx-2" href="https://twitter.com/j0lms"><i class="fab fa-fw fa-twitter"></i></a></div>
+                    <div class="divider-custom-icon"><a class="btn btn-outline-light btn-social mx-2" href="https://github.com/j0lms"><i class="fab fa-fw fa-github"></i></a></div>
+                    <div class="divider-custom-icon"><a class="btn btn-outline-light btn-social mx-2" href="https://soundcloud.com/j0lms"><i class="fab fa-fw fa-soundcloud"></i></a></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+{%endblock%}

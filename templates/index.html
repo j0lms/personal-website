@@ -1,0 +1,83 @@
+{% extends "base.html" %} {% load markdown_extras %} {% load i18n%}
+{% block title %}Blog{% endblock %}
+{% block content %}
+
+<style>
+
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        background-color: #F6F5F5;
+        box-shadow: 0 0px 0px #E3E7EB;
+    }
+    html {
+  box-sizing: border-box;
+}
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h2 class= "site-heading my-4 mt-3 text-white text-center font-weight-bold">Blog</h2>
+                    <p class="text-light text-center font-weight-light">{% trans "A compendium of music-adjacent thoughts" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <!-- Blog Entries Column -->
+        <div class="col-md-8 mt-3 left">
+            {% for post in post_list %}
+            <div class="card mb-4">
+                {% if post.image %}
+                <a href="{% url 'post_detail' post.slug  %}">
+                <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+                </a>
+                {% endif %}
+                {% get_current_language as LANGUAGE_CODE %}
+                {% if LANGUAGE_CODE == 'es' %}
+                <h2 class="card-header"><a href="{% url 'post_detail' post.slug  %}" class="py-2" style="text-decoration: none! important">{{ post.title_es }}</a></h2>
+                {% elif post.title %}
+                <h2 class="card-header"><a href="{% url 'post_detail' post.slug  %}" class="py-2" style="text-decoration: none! important">{{ post.title }}</a></h2>
+                {% endif %}
+                <div class="card-body">
+                    <p class="card-text text-muted h6">{{ post.created_on.date }}&nbsp;</p>
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% if LANGUAGE_CODE == 'es' %}
+                    <p class="card-text">{{post.content_es|slice:":200" | markdown | safe  }}</p>
+                    {% elif post.content %}
+                    <p class="card-text">{{post.content|slice:":200" | markdown | safe  }}</p>
+                    {% endif %}
+                    <!--a href="{% url 'post_detail' post.slug  %}" class="btn btn-primary">Read More &rarr;</a-->
+                </div>
+                  <div class="card-footer text-muted">
+                   {% if post.categories %}<small> {% trans "Categories:" %}&nbsp; {% for category in post.categories.all %} <a href="{% url 'blog_category' category.name %}" style="text-decoration: none! important"> {{ category.name }}&nbsp;{% endfor %}</a></small>  {% endif %}
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+    </div>
+</div>
+{% if is_paginated %}
+  <nav aria-label="Page navigation container"></nav>
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+    {% endif %}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> {% trans "NEXT" %} &raquo;</a></li>
+
+    {% endif %}
+  </ul>
+  </nav>
+</div>
+{% endif %}
+{%endblock%}

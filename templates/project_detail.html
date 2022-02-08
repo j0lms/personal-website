@@ -1,0 +1,54 @@
+{% extends "base.html" %} {% load i18n%}
+{% load static %}
+{% block title %}
+{% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'es' %}
+        {{ project.title_es }}
+    {% elif project.title %}
+        {{ project.title }}
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+
+<style>
+        body, html {
+            background-color: #D3E0EA;
+            overflow-x: hidden;
+        }
+            .card {
+        background-color: #F6F5F5;
+        box-shadow: 0 0px 0px #E3E7EB;
+    }
+</style>
+<body>
+<div class="row mt-4">
+    {% if project.image %}
+    <div class="col-md-8">
+        <img src="{{ project.image.url }}" alt="{{ project.title }}" width="100%">
+    </div>
+    {% endif %}
+
+    <div class="card col-md-3">
+        <h5 class="card-title mt-4 ml-2">{% trans "Project title:" %}</h5>
+        {% get_current_language as LANGUAGE_CODE %}
+        {% if LANGUAGE_CODE == 'es' %}
+        <p class="card-text ml-2 mr-4">{{ project.title_es }}</p>
+        {% elif project.title %}
+        <p class="card-text ml-2 mr-4">{{ project.title }}</p>
+        {% endif %}
+        <h5 class="card-title ml-2">{% trans "About the project:" %}</h5>
+        {% get_current_language as LANGUAGE_CODE %}
+        {% if LANGUAGE_CODE == 'es' %}
+        <p  class="card-text ml-2 mr-4">{{ project.description_es }}</p>
+        {% elif project.description %}
+        <p  class="card-text ml-2 mr-4">{{ project.description }}</p>
+        {% endif %}
+        <h5 class="card-title ml-2">{% trans "Technology used:" %}</h5>
+        <p class="card-text ml-2 mr-4">{{ project.technology }}</p>
+        <div class="text-center"><a href="{{ project.link }}" class="btn btn-primary mr-4" style="text-decoration: none! important"><i class="fas fa-link" aria-hidden="true"></i>&nbsp;Link</a><a href="{% url 'project_index' %}" class="btn btn-primary mr-4"><i class="fas fa-backward" aria-hidden="true"></i>&nbsp;{% trans "Back" %}</a></div>
+        <div class="mb-4"></div>
+    </div>
+</div>
+</body>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends "base.html" %} {% load markdown_extras %} {% load i18n%}
+{% block title %}{{ category | title }}{% endblock %}
+{% block content %}
+
+    <style>
+        .card {
+        background-color: #F6F5F5;
+        box-shadow: 0 0px 0px #E3E7EB;
+    }
+    </style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 mt-3 left">
+        <div class="card mt-3 mb-4">
+            <h2 class="card-header">{{ category | title }}</h2>
+        </div>
+            <hr>
+            {% for post in posts %}
+            <div class="card mb-4">
+        {% if post.image %}
+        <img class="card-img-top img-fluid" src="{{ post.image.url }}" alt="{{ post.title }}">
+        {% endif %}
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% if LANGUAGE_CODE == 'es' %}
+                    <h2 class="card-header"><a href="{% url 'post_detail' post.slug  %}" style="text-decoration: none! important">{{ post.title_es }}</a></h2>
+                    {% elif post.title %}
+                    <h2 class="card-header"><a href="{% url 'post_detail' post.slug  %}" style="text-decoration: none! important">{{ post.title }}</a></h2>
+                    {% endif %}
+                <div class="card-body">
+                    <p class="card-text text-muted h6">
+                        {{ post.created_on.date }}
+                    </p>
+                    {% get_current_language as LANGUAGE_CODE %}
+                    {% if LANGUAGE_CODE == 'es' %}
+                    <p class="card-text">{{ post.content_es | slice:":200" | markdown | safe }}</p>
+                    {% elif post.content %}
+                    <p class="card-text">{{ post.content | slice:":200" | markdown | safe }}</p>
+                    {% endif %}
+
+                </div>
+                  <div class="card-footer text-muted">
+                   {% if post.categories %}<small> {% trans "Categories:" %}&nbsp; {% for category in post.categories.all %} <a href="{% url 'blog_category' category.name %}" style="text-decoration: none! important"> {{ category.name }}&nbsp;{% endfor %}</a></small>  {% endif %}
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+    </div>
+</div>
+{% endblock %}

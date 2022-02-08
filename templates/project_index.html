@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% load static %} {% load i18n%}
+{% block title %}{% trans "Projects" %}{% endblock %}
+{% block content %}
+
+<style>
+    .card {
+        background-color: #F6F5F5;
+        box-shadow: 0 0px 0px #E3E7EB;
+    }
+        body {
+            background-color: #D3E0EA;
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+    i{
+    font-family: 'FontAwesome';
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h2 class= "site-heading my-4 mt-3 text-white text-center font-weight-bold">{% trans "Projects" %}</h2>
+                    <p class="text-light text-center font-weight-light">{% trans "Personal portfolio" %}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<body>
+<div class="container">
+<div class="row mt-4">
+{% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            {% if project.image %}
+            <a href="{% url 'project_detail' project.slug %}">
+            <img class="card-img-top" src="{{ project.image.url }}">
+            </a>
+            {% endif %}
+            {% get_current_language as LANGUAGE_CODE %}
+            {% if LANGUAGE_CODE == 'es' %}
+            <h5 class="card-header">{{ project.title_es }}</h5>
+            {% elif project.title %}
+            <h5 class="card-header">{{ project.title }}</h5>
+            {% endif %}
+            <div class="card-body">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% if LANGUAGE_CODE == 'es' %}
+                <p class="card-text">{{ project.description_es | slice:":200" | safe}}</p>
+                {% elif project.description %}
+                <p class="card-text">{{ project.description | slice:":200" | safe}}</p>
+                {% endif %}
+
+            </div>
+                <div class="card-footer text-center">
+                <a href="{% url 'project_detail' project.slug %}"
+                   class="btn btn-primary"><i class="fas fa-forward" aria-hidden="true"></i>&nbsp;
+                    {% trans "Read more" %}
+                </a>
+                </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+</div>
+</body>
+{% endblock %}

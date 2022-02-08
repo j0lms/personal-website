@@ -1,0 +1,30 @@
+{% block sidebar %} {% load i18n%}
+
+<style>
+        .card{
+            box-shadow: 0 0px 0px #E3E7EB;
+        }
+
+</style>
+
+<!-- Sidebar Widgets Column -->
+<div class="col-md-4 float-right ">
+<div class="card my-4">
+        <h5 class="card-header">{% trans "RSS Feed" %}</h5>
+    <div class="card-body">
+        <p class="card-text">{% trans "You can subscribe to the blog using RSS." %}</p>
+    </div>
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'es' %}
+    <div class="card-footer text-center">
+        <a href="{% url 'post_feed_es' %}" class="btn btn-primary"><i class="fas fa-rss" aria-hidden="true"></i>&nbsp;{% trans "Subscribe" %}</a>
+        </div>
+    {% elif LANGUAGE_CODE %}
+        <div class="card-footer text-center">
+        <a href="{% url 'post_feed' %}" class="btn btn-primary"><i class="fas fa-rss" aria-hidden="true"></i>&nbsp;{% trans "Subscribe" %}</a>
+        </div>
+    {% endif %}
+</div>
+</div>
+
+{% endblock sidebar %}
